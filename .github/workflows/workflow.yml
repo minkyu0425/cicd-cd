@@ -25,7 +25,10 @@ jobs:
 
       - name: Print the Helm client version information
         run: helm version
-      
+        
+      - name: Examine the chart for possible issues          
+        run: helm lint ${{ env.CHART_PATH }}
+        
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
@@ -48,10 +51,7 @@ jobs:
       
       - name: Get Kubernetes config
         run: gcloud container clusters get-credentials cicd-cluster --region asia-northeast3 --project test-project-11542
-        
-      - name: Examine the chart for possible issues          
-        run: helm lint ${{ env.CHART_PATH }}     
-        
+              
       - name: Dry-run the release
         run: |
           helm upgrade ${{ env.RELEASE_NAME }} ${{ env.CHART_PATH }} \
