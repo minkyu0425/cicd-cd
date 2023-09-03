@@ -14,7 +14,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "helm-helloworld.fullname" . }}
+                name: {{ .Values.nameOverride }}
                 port:
                   name: http
 {{- end -}}
