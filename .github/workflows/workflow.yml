@@ -25,7 +25,9 @@ jobs:
 
       - name: Print the Helm client version information
         run: helm version
-        
+      - name: check
+        run: helm get values RELEASE_NAME
+      
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
