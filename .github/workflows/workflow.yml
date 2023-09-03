@@ -25,8 +25,6 @@ jobs:
 
       - name: Print the Helm client version information
         run: helm version
-      - name: check
-        run: helm get values RELEASE_NAME
       
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
@@ -37,6 +35,10 @@ jobs:
           service_account: 'wif-test@test-project-11542.iam.gserviceaccount.com'
           audience: 'https://github.com/minkyu0425/cicd-cd'
 
+        #릴리스 체크
+      - name: check
+        run: helm get values RELEASE_NAME
+        
       - name: Examine the chart for possible issues          
         run: helm lint ${{ env.CHART_PATH }}
       
