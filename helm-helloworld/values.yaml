@@ -1,7 +1,7 @@
 #1
-printValues: "hello world!"
+printValues: "hello world2!"
 nameOverride: "helm-helloworld"
-fullnameOverride: "helm-helloworld"
+
 ingress:
   enabled: true
   className: ""
