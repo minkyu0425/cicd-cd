@@ -1,6 +1,7 @@
 #1
 printValues: "hello world!"
-fullnameOverride: "nginx-test"
+nameOverride: "helm-helloworld"
+fullnameOverride: "helm-helloworld"
 ingress:
   enabled: true
   className: ""
