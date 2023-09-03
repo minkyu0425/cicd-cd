@@ -49,10 +49,6 @@ jobs:
       - name: Get Kubernetes config
         run: gcloud container clusters get-credentials cicd-cluster --region asia-northeast3 --project test-project-11542
         
-        #릴리스 체크
-      - name: check
-        run: helm get values RELEASE_NAME
-        
       - name: Examine the chart for possible issues          
         run: helm lint ${{ env.CHART_PATH }}     
         
