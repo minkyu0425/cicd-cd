@@ -11,4 +11,4 @@ ingress:
     kubernetes.io/ingress.global-static-ip-name: gke-static-ip
   path: /
   hosts:
-  - host: 34.64.105.123
+  - host: 172.16.0.2
