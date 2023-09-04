@@ -12,3 +12,7 @@ ingress:
   path: /
   hosts:
   - host: 172.16.0.2
+
+service:
+  type: ClusterIP
+  port: 8080
