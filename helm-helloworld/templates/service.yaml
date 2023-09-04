@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "helm-helloworld.fullname" . }}
+  labels:
+    {{- include "helm-helloworld.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: http
+  selector:
+    {{- include "helm-helloworld.selectorLabels" . | nindent 4 }}
