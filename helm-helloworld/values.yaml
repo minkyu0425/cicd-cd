@@ -3,12 +3,12 @@
 replicaCount: 1
 
 image:
-  repository: asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile:v1
+  repository: asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile:v2
   pullPolicy: IfNotPresent
-  tag: "v1"
+  tag: "v2"
   # Overrides the image tag whose default is the chart appVersion.
   
-printValues: "hello world2!"
+
 nameOverride: "helm-helloworld"
 fullnameOverride: "helm-helloworld"
 
@@ -22,6 +22,10 @@ ingress:
   path: /
   hosts:
   - host: 172.16.0.2
+service:
+  type: ClusterIP
+  port: 80
+
 
 serviceAccount:
   # Specifies whether a service account should be created
