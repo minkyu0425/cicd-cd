@@ -3,8 +3,7 @@ kind: Deployment
 metadata:
   name: helm-helloworld
   labels:
-    app: helm-helloworld
-    chart: helm-helloworld
+    {{- include "hello-world.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
