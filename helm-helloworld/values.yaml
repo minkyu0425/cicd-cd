@@ -10,7 +10,7 @@ image:
   
 
 nameOverride: "hello"
-fullnameOverride: "helloworld"
+fullnameOverride: "helm-helloworld"
 
 ingress:
   enabled: true
