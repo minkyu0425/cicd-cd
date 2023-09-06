@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: helm-helloworld
   labels:
-    {{- include "hello-world.labels" . | nindent 4 }}
+    helm-helloworld
 spec:
   replicas: 1
   selector:
