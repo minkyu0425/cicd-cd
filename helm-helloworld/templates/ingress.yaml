@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.nameOverride }}
+  name: {{ include "hello-world.fullname" . }}
   annotations:
     {{- toYaml .Values.ingress.annotations | nindent 4 }}
 spec:
@@ -14,7 +14,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.nameOverride }}
+                name: {{ include "hello-world.fullname" . }}
                 port:
                   name: http
 {{- end -}}
