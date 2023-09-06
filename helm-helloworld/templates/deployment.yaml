@@ -8,14 +8,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      helm-helloworld
+      {{- include "hello-world.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        helm-helloworld
+        {{- include "hello-world.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-        - name: helm-helloworld-container
+        - name: {{ .Chart.Name }}
           image: "asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile:v2"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           
