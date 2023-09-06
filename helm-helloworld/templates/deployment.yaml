@@ -4,15 +4,16 @@ metadata:
   name: helm-helloworld
   labels:
     helm-helloworld
+    chart: helm-helloworld
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: helm-helloworld
+      helm-helloworld
   template:
     metadata:
       labels:
-        app: helm-helloworld
+        helm-helloworld
     spec:
       containers:
         - name: helm-helloworld-container
