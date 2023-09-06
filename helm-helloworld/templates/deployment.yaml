@@ -8,11 +8,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      helm-helloworld
+      app: helm-helloworld
   template:
     metadata:
       labels:
-        helm-helloworld
+        app: helm-helloworld
     spec:
       containers:
         - name: helm-helloworld-container
