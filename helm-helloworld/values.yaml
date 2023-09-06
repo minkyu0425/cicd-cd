@@ -19,8 +19,6 @@ ingress:
     # kubernetes.io/tls-acme: "true"
     kubernetes.io/ingress.global-static-ip-name: gke-static-ip
   path: /
-  hosts:
-  - host: 172.16.0.2
 service:
   type: ClusterIP
   port: 80
