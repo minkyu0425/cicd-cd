@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: helm-helloworld-container
-          image: "asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile:v1"
+          image: "asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile:v2"
           env:
           - name: PRINT_VALUES
             value: {{.Values.printValues}}
