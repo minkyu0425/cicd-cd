@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile:v2"
+          image: "asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile:v3"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           
