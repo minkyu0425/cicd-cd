@@ -9,8 +9,8 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   
 
-nameOverride: "helm-helloworld"
-fullnameOverride: "helm-helloworld"
+nameOverride: "hello"
+fullnameOverride: "helloworld"
 
 ingress:
   enabled: true
