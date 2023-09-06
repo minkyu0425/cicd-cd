@@ -1,26 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helm-helloworld
+  name: {{ include "hello-world.fullname" . }}
   labels:
-    app: helm-helloworld
-    chart: helm-helloworld
+    {{- include "hello-world.labels" . | nindent 4 }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "hello-world.selectorLabels" . | nindent 4 }}
+      {{- include "hello-world.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
         {{- include "hello-world.selectorLabels" . | nindent 8 }}
     spec:
+      serviceAccountName: {{ include "hello-world.serviceAccountName" . }}
       containers:
-        - name: helm-helloworld-container
+        - name: {{ .Chart.Name }}
           image: "asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile:v2"
-          env:
-          - name: PRINT_VALUES
-            value: {{.Values.printValues}}
-          command: ["/bin/sh","-c"]
-          args: 
-          - while true; do echo $PRINT_VALUES; sleep 5; done;
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
