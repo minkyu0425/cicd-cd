@@ -19,4 +19,7 @@ spec:
         - name: {{ .Chart.Name }}
           image: "asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile:v5"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          
+          ports:
+          - name : http
+            containerPort: 80
+            protocol: TCP
