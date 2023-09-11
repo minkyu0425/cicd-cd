@@ -3,9 +3,9 @@
 replicaCount: 1
 
 image:
-  repository: asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile:v5
+  repository: asia-northeast3-docker.pkg.dev/test-project-11542/cicd/dockerfile
   pullPolicy: IfNotPresent
-  tag: "v5"
+  tag: "v6"
   # Overrides the image tag whose default is the chart appVersion.
   
 
